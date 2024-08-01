@@ -96,6 +96,24 @@ const Home = () => {
             </div>
           </div>
           <div
+  className={`products ${
+    isFilterVisible ? 'products--three-per-row' : 'products--four-per-row'
+  }`}
+>
+  {state.map((val) => (
+    <div key={val.id} className="product-item">
+      <div className="product-image-container">
+        <img src={val.image} alt={val.category} />
+      </div>
+      <div className="product-info">
+        <p>{val.category}</p>
+        <FaRegHeart className="heart-icon" />
+      </div>
+    </div>
+  ))}
+</div>
+
+          {/* <div
             className={`products ${
               isFilterVisible ? 'products--three-per-row' : 'products--four-per-row'
             }`}
@@ -104,13 +122,13 @@ const Home = () => {
               <div key={val.id} className="product-item">
                 <div className="product-image-container">
                   <img src={val.image} alt={val.category} />
+                  <FaRegHeart className="heart-icon" />
                 </div>
-                <p>{val.category}</p>
-                <p>{val.price} ₹</p>
-                {/* <FaRegHeart className='heart-icon'/> */}
+                <p>{val.category}  </p>
+                <FaRegHeart className='heart-icon'/>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
       <Footer />
