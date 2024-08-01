@@ -1,27 +1,22 @@
-
-"use client"
-
 "use client";
-import React, { useEffect, useState } from 'react' ;
+import React, { useEffect, useState } from "react";
 import { FaRegHeart } from "react-icons/fa";
-
-import '/src/app/styles.css' ;
-import '/src/app/home.css' ;
-import Header from './header/page' ;    
-import Footer from './footer/page' ;
+import "/src/app/styles.css";
+import "/src/app/home.css";
+import Header from "./header/page";
+import Footer from "./footer/page";
 
 const Home = () => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [state, setState] = useState([]);
 
   useEffect(() => {
-    fetch('https://fakestoreapi.com/products/')
+    fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
       .then((response) => setState(response))
       .catch((error) => console.error(error));
   }, []);
 
-  console.log(state,'statesss');
 
   const toggleFilter = (e) => {
     e.preventDefault();
@@ -43,7 +38,7 @@ const Home = () => {
         <div className="filter-toggle">
           <span id="items-count">3425 Items</span>
           <a href="#" id="toggle-filter" onClick={toggleFilter}>
-            {isFilterVisible ? 'Hide Filter' : 'Show Filter'}
+            {isFilterVisible ? "Hide Filter" : "Show Filter"}
           </a>
           <div className="sort-options">
             <select id="sort">
@@ -57,9 +52,7 @@ const Home = () => {
         </div>
         <div className="product-list">
           <div
-            className={`filters ${
-              isFilterVisible ? 'filters--visible' : ''
-            }`}
+            className={`filters ${isFilterVisible ? "filters--visible" : ""}`}
             id="filter-section"
           >
             <div className="filter-category">
@@ -96,39 +89,24 @@ const Home = () => {
             </div>
           </div>
           <div
-  className={`products ${
-    isFilterVisible ? 'products--three-per-row' : 'products--four-per-row'
-  }`}
->
-  {state.map((val) => (
-    <div key={val.id} className="product-item">
-      <div className="product-image-container">
-        <img src={val.image} alt={val.category} />
-      </div>
-      <div className="product-info">
-        <p>{val.category}</p>
-        <FaRegHeart className="heart-icon" />
-      </div>
-    </div>
-  ))}
-</div>
-
-          {/* <div
             className={`products ${
-              isFilterVisible ? 'products--three-per-row' : 'products--four-per-row'
+              isFilterVisible
+                ? "products--three-per-row"
+                : "products--four-per-row"
             }`}
           >
             {state.map((val) => (
               <div key={val.id} className="product-item">
                 <div className="product-image-container">
                   <img src={val.image} alt={val.category} />
+                </div>
+                <div className="product-info">
+                  <p>{val.category}</p>
                   <FaRegHeart className="heart-icon" />
                 </div>
-                <p>{val.category}  </p>
-                <FaRegHeart className='heart-icon'/>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
       </div>
       <Footer />
