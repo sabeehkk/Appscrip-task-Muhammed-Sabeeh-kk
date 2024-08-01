@@ -2,11 +2,11 @@
 "use client"
 
 "use client";
-import React, { useEffect, useState } from 'react';
-import '/src/app/styles.css';
-import '/src/app/home.css';
-import Header from './header/page';
-import Footer from './footer/page';
+import React, { useEffect, useState } from 'react' ;
+import '/src/app/styles.css' ;
+import '/src/app/home.css' ;
+import Header from './header/page' ;    
+import Footer from './footer/page' ;
 
 const Home = () => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);

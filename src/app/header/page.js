@@ -61,19 +61,19 @@ const Page = () => {
         <nav className="navigation">
           <ul>
             <li>
-              <a href="#">Shop</a>
+              <a href="#">SHOP</a>
             </li>
             <li>
-              <a href="#">Skills</a>
+              <a href="#">SKILLS</a>
             </li>
             <li>
-              <a href="#">Stories</a>
+              <a href="#">STORIES</a>
             </li>
             <li>
-              <a href="#">About</a>
+              <a href="#">ABOUT</a>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <a href="#">CONTACT US</a>
             </li>
           </ul>
         </nav>
