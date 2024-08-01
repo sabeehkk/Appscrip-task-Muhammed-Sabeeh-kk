@@ -13,10 +13,21 @@ header {
 }
 
 .header h1 {
-  font-size: 40px;
-  font-weight: 300;
-}
 
+  font-size: 2.5rem; 
+  font-weight: 300;  
+  letter-spacing: 0.1rem; 
+  text-transform: uppercase; 
+  margin-bottom: 1rem;
+}
+.header p {
+  font-size: 1rem; 
+  font-weight: 300;
+  color: #666; 
+  line-height: 1.5; 
+  margin: 0 auto; 
+  max-width: 600px;
+}
 .filter-toggle {
   display: flex;
   justify-content: space-between;
