@@ -1,0 +1,157 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin: 20px 0;
+  padding-top: 10px;
+  padding-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 40px;
+  font-weight: 300;
+}
+
+.filter-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+#items-count {
+  font-weight: bold;
+}
+
+#toggle-filter {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+}
+
+.product-list {
+  display: flex;
+  align-items: flex-start;
+}
+
+.filters {
+  flex: 1;
+  display: none;
+  margin-right: 20px;
+  max-width: 250px;
+}
+
+.filters.filters--visible {
+  display: block;
+}
+
+.filter-category {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-category label,
+.filter-dropdown {
+  margin-bottom: 10px;
+}
+
+.filter-dropdown p {
+  margin: 0;
+}
+
+.sort-options {
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sort-options select {
+  font-weight: bold;
+  padding: 8px;
+  border: none;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+}
+
+.products {
+  flex: 4;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.products--four-per-row .product-item {
+  width: 23%;
+}
+
+.products--three-per-row .product-item {
+  width: 30%;
+}
+
+.product-item {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+}
+
+.product-item p {
+  font-weight: bold;
+}
+
+.product-item a {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  margin-top: 10px;
+}
+
+.custom-checkbox {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 12px;
+}
+
+@media (max-width: 1024px) {
+  .products.products--four-per-row .product-item,
+  .products.products--three-per-row .product-item {
+    width: 48%;
+  }
+}
+
+@media (max-width: 768px) {
+  .products.products--four-per-row .product-item,
+  .products.products--three-per-row .product-item {
+    width: 48%;
+  }
+}
+
+@media (max-width: 480px) {
+  .products.products--four-per-row .product-item,
+  .products.products--three-per-row .product-item {
+    width: 100%;
+  }
+}
+
+.filter-checkbox {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-checkbox label {
+  margin-bottom: 10px;
+}

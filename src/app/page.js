@@ -1,95 +1,92 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 
-export default function Home() {
+"use client"
+import { useEffect, useState } from 'react';
+import '/src/app/styles.css';
+import '/src/app/home.css';
+import Header from './header/page'
+import Footer from './footer/page'
+ 
+const Home = () => {
+  const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [state, setState] = useState([]);
+
+  console.log(state, 'statesssssssssssssss');
+
+  const toggleFilter = (e) => {
+    e.preventDefault();
+    setIsFilterVisible(!isFilterVisible);
+  };
+
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/')
+      .then(res => res.json())
+      .then(response => {
+        setState(response), console.log(response, 'response');
+      })
+  }, [])
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+    <Header/>
+      <div>
+        <div className="container">
+          <header className='header'>
+            <h1>DISCOVER OUR PRODUCTS</h1>
+            <p>Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus scelerisque. Dolor integer scelerisque nibh amet mi ut elementum dolor.</p>
+          </header>
+          <div className="filter-toggle">
+            <span id="items-count">3425 Items</span>
+            <a href="#" id="toggle-filter" onClick={toggleFilter}>
+              {isFilterVisible ? 'Hide Filter' : 'Show Filter'}
+            </a>
+
+            <div className="sort-options">
+              <select id="sort">
+                <option value="recommended">RECOMMENDED</option>
+                <option value="newest">NEWEST FIRST</option>
+                <option value="popular">POPULAR</option>
+                <option value="price-high">PRICE: HIGH TO LOW</option>
+                <option value="price-low">PRICE: LOW TO HIGH</option>
+              </select>
+            </div>
+          </div>
+          <div className="product-list">
+            <div className={`filters ${isFilterVisible ? 'filters--visible' : ''}`} id="filter-section">
+              <div className="filter-category">
+                <label className='custom-checkbox'><input type="checkbox" /> Customizable</label>
+                <div className="filter-checkbox">
+                  <p>Ideal For</p>
+                  <label><input type="checkbox" /> Men</label>
+                  <label><input type="checkbox" /> Women</label>
+                </div>
+                <div className="filter-checkbox">
+                  <p>Ideal For</p>
+                  <label><input type="checkbox" /> Men</label>
+                  <label><input type="checkbox" /> Women</label>
+                </div>
+                <div className="filter-checkbox">
+                  <p>Ideal For</p>
+                  <label><input type="checkbox" /> Men</label>
+                  <label><input type="checkbox" /> Women</label>
+                </div>
+              </div>
+            </div>
+
+            <div className={`products ${isFilterVisible ? 'products--three-per-row' : 'products--four-per-row'}`}>
+              {state.map((val) => (
+                <div key={val.id} className="product-item">
+                  <img className='product-images' src={val.image} alt={val.category} />
+                  <p>{val.category}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+        
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Footer/>
+    </>
   );
 }
+
+export default Home;

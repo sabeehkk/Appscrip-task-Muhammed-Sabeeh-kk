@@ -1,0 +1,114 @@
+.filters {
+    display: none;
+  }
+  .filters.filters--visible {
+    display: block;
+  }
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .products.products--four-per-row .product-item {
+    width: 23%;
+  }
+  .products.products--three-per-row .product-item {
+    width: 30%;
+  }
+  .product-item {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  .product-item img {
+    width: 100%;
+    height: auto;
+  }
+  .product-item p {
+    font-weight: bold;
+  }
+  .product-item a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 1024px) {
+    .products.products--four-per-row .product-item {
+      width: 48%;
+    }
+    .products.products--three-per-row .product-item {
+      width: 48%;
+    }
+  }
+  @media (max-width: 768px) {
+    .products.products--four-per-row .product-item,
+    .products.products--three-per-row .product-item {
+      width: 48%;
+    }
+  }
+  @media (max-width: 480px) {
+    .products.products--four-per-row .product-item,
+    .products.products--three-per-row .product-item {
+      width: 100%;
+    }
+  }
+  
+  .filter-checkbox {
+    display: flex;
+    flex-direction: column;
+  }
+  .filter-checkbox label {
+    margin-bottom: 10px;
+  }
+  
+  
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .product-card {
+    flex: 1 1 20%;
+    max-width: 250px;
+    min-width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-info {
+    padding: 15px;
+  }
+  
+  .product-name {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 0.9em;
+  }
+  
+  .product-price a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .product-price a:hover {
+    text-decoration: underline;
+  }
