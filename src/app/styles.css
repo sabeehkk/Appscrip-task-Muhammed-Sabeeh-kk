@@ -5,10 +5,7 @@ html {
   font-family: Arial, sans-serif;
 }
 
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
+
 
 header {
   text-align: center;
@@ -41,10 +38,10 @@ header {
   font-weight: bold;
 }
 
-.product-list {
+/* .product-list {
   display: flex;
   align-items: flex-start;
-}
+} */
 
 .filters {
   flex: 1;
