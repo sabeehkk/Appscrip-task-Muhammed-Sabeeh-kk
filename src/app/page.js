@@ -3,6 +3,8 @@
 
 "use client";
 import React, { useEffect, useState } from 'react' ;
+import { FaRegHeart } from "react-icons/fa";
+
 import '/src/app/styles.css' ;
 import '/src/app/home.css' ;
 import Header from './header/page' ;    
@@ -18,6 +20,8 @@ const Home = () => {
       .then((response) => setState(response))
       .catch((error) => console.error(error));
   }, []);
+
+  console.log(state,'statesss');
 
   const toggleFilter = (e) => {
     e.preventDefault();
@@ -102,6 +106,8 @@ const Home = () => {
                   <img src={val.image} alt={val.category} />
                 </div>
                 <p>{val.category}</p>
+                <p>{val.price} ₹</p>
+                {/* <FaRegHeart className='heart-icon'/> */}
               </div>
             ))}
           </div>
