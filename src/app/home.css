@@ -23,8 +23,12 @@
 .product-item {
   margin-bottom: 20px;
   text-align: center;
+  border-radius: 5px solid red;
 }
-
+.product-images{
+  border-radius: 5px solid red;
+  background-color: black;
+}
 .product-item img {
   width: 100%;
   height: auto;

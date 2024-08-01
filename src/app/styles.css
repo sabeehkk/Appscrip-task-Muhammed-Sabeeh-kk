@@ -159,3 +159,96 @@ header {
 .filter-checkbox label {
   margin-bottom: 10px;
 }
+
+/* +++++++++++++++++++++++++++++++++++++++ */
+.container {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+  width: 240px; /* Fixed width for uniformity */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-item p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+#items-count {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.filter-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.sort-options select {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+
+.custom-checkbox {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .product-item {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  overflow: hidden;
+  width: 240px; /* Fixed width for uniformity */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image-container {
+  width: 100%;
+  height: 200px; /* Set a fixed height for all images */
+  overflow: hidden;
+}
+
+.product-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the container */
+}
+
+.product-item p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
