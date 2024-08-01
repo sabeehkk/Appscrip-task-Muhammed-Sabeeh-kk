@@ -1,5 +1,7 @@
+"use client"
+
 import React, { useState } from 'react';
-import '../header/header.css';
+import './header.css';
 import { CiSearch, CiHeart } from "react-icons/ci";
 import { HiOutlineUser } from "react-icons/hi2";
 import { IoBagRemoveOutline } from "react-icons/io5";
