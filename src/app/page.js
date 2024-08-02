@@ -37,7 +37,7 @@ const Home = () => {
         </header>
         <div className="filter-toggle">
           <span id="items-count">3425 Items</span>
-          <a href="#" id="toggle-filter" onClick={toggleFilter}>
+          <a href="#"  id="toggle-filter" onClick={toggleFilter}>
             {isFilterVisible ? "Hide Filter" : "Show Filter"}
           </a>
           <div className="sort-options">
@@ -69,7 +69,7 @@ const Home = () => {
                 </label>
               </div>
               <div className="filter-checkbox">
-                <p>Ideal For</p>
+                <p>Ideal For </p>
                 <label>
                   <input type="checkbox" /> Men
                 </label>
