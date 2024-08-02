@@ -55,6 +55,9 @@ header {
   display: flex;
   flex-direction: column;
 }
+.filter-category p{
+ cursor: pointer;
+}
 .filter-category label,
 .filter-dropdown {
   margin-bottom: 10px;

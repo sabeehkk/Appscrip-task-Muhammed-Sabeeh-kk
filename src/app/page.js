@@ -8,8 +8,10 @@ import Footer from "./footer/page";
 
 const Home = () => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [toggleInput, setToggleInput] = useState({});
   const [state, setState] = useState([]);
-
+  const [category, setCategory] = useState([]);
+  
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/")
       .then((res) => res.json())
@@ -17,10 +19,23 @@ const Home = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products/categories")
+      .then((res) => res.json())
+      .then((response) => setCategory(response))
+      .catch((error) => console.error(error));
+  }, []);
 
   const toggleFilter = (e) => {
     e.preventDefault();
     setIsFilterVisible(!isFilterVisible);
+  };
+
+  const handleToggleInput = (category) => {
+    setToggleInput((prevState) => ({
+      ...prevState,
+      [category]: !prevState[category],
+    }));
   };
 
   return (
@@ -36,8 +51,8 @@ const Home = () => {
           </p>
         </header>
         <div className="filter-toggle">
-          <span id="items-count">3425 Items</span>
-          <a href="#"  id="toggle-filter" onClick={toggleFilter}>
+          <span id="items-count">{`${state.length} Items`}</span>
+          <a href="#" id="toggle-filter" onClick={toggleFilter}>
             {isFilterVisible ? "Hide Filter" : "Show Filter"}
           </a>
           <div className="sort-options">
@@ -57,35 +72,26 @@ const Home = () => {
           >
             <div className="filter-category">
               <label className="custom-checkbox">
-                <input type="checkbox" /> Customizable
+                <input type="checkbox" /> CUSTOMIZABLE
               </label>
-              <div className="filter-checkbox">
-                <p>Ideal For</p>
-                <label>
-                  <input type="checkbox" /> Men
-                </label>
-                <label>
-                  <input type="checkbox" /> Women
-                </label>
-              </div>
-              <div className="filter-checkbox">
-                <p>Ideal For </p>
-                <label>
-                  <input type="checkbox" /> Men
-                </label>
-                <label>
-                  <input type="checkbox" /> Women
-                </label>
-              </div>
-              <div className="filter-checkbox">
-                <p>Ideal For</p>
-                <label>
-                  <input type="checkbox" /> Men
-                </label>
-                <label>
-                  <input type="checkbox" /> Women
-                </label>
-              </div>
+
+              {category.map((value, index) => (
+                <div key={index} className="filter-checkbox">
+                  <p onClick={() => handleToggleInput(value)}>
+                    {value} ↓
+                  </p>
+                  {toggleInput[value] && (
+                    <div className="filter-checkbox">
+                      <label>
+                        <input type="checkbox" /> Men
+                      </label>
+                      <label>
+                        <input type="checkbox" /> Women
+                      </label>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
           <div
